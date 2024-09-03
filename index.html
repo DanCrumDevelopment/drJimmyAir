@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to drjimmyair.com</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin: 0;
+        }
+        .organic {
+            font-size: 2rem;
+            color: lime;
+            animation: flash 1s infinite;
+        }
+        .natural {
+            font-size: 1.5rem;
+            color: #333;
+            margin-top: 10px;
+        }
+        @keyframes flash {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to drjimmyair.com where normal air</h1>
+    <div class="organic">All organic</div>
+    <div class="natural">All natural</div>
+</body>
+</html>
