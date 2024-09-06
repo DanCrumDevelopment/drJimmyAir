@@ -59,32 +59,6 @@
         .button-container {
             text-align: center;
             margin-top: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        #paypal-container-CW7V7YHHQ3C6U {
-            display: block;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        button {
-            padding: 15px 25px;
-            font-size: 18px;
-            background-color: #0070ba;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        button:hover {
-            background-color: #005ea6;
         }
 
         .modal {
@@ -142,9 +116,6 @@
             button {
                 font-size: 16px;
             }
-            .button-container {
-                display: block;
-            }
         }
     </style>
 </head>
@@ -159,7 +130,7 @@
         </div>
         <br><br><br> <!-- Added extra space between starburst and PayPal -->
         <div class="button-container">
-            <div id="paypal-container-CW7V7YHHQ3C6U"></div>
+            <div id="paypal-button-container"></div> <!-- Updated ID for PayPal -->
         </div>
     </div>
 
@@ -170,11 +141,12 @@
         </div>
     </div>
 
-    <script src="https://www.paypal.com/sdk/js?client-id=BAAoZlFu0Dg8P_fvy0JFGVaIBDLBKYvj7oVjsxBds4z09sBZ-gT7kEpz1IvXfUqrKxjB9hkumORKnXWD0Q&components=buttons,funding-eligibility&enable-funding=venmo&currency=USD"></script>
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=BAAoZlFu0Dg8P_fvy0JFGVaIBDLBKYvj7oVjsxBds4z09sBZ-gT7kEpz1IvXfUqrKxjB9hkumORKnXWD0Q&components=buttons&enable-funding=venmo&currency=USD"></script>
+
+    <!-- PayPal Button Script -->
     <script>
-        paypal.HostedButtons({
-          hostedButtonId: "CW7V7YHHQ3C6U",
-        }).render("#paypal-container-CW7V7YHHQ3C6U");
+        paypal.Buttons().render('#paypal-button-container'); // Render the PayPal buttons
 
         // Show the modal on page load
         window.onload = function() {
