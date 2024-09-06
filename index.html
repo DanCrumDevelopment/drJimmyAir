@@ -47,18 +47,28 @@
             background-color: yellow;
             color: red;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 28px;
             border-radius: 50%;
             text-shadow: 2px 2px 5px black;
             transform: rotate(-15deg);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
             width: 90%;
-            max-width: 500px;
+            max-width: 600px;
         }
 
         .button-container {
             text-align: center;
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #paypal-container-CW7V7YHHQ3C6U {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
         }
 
         button {
@@ -123,7 +133,7 @@
 
         @media (max-width: 600px) {
             .starburst {
-                font-size: 16px;
+                font-size: 22px;
                 padding: 10px;
             }
             img {
@@ -131,6 +141,9 @@
             }
             button {
                 font-size: 16px;
+            }
+            .button-container {
+                display: block;
             }
         }
     </style>
@@ -144,6 +157,7 @@
             <div class="starburst">DrJimmyAir.Com where we sell you the own air that you breathe!</div>
             <div class="starburst">Now 20% off!</div>
         </div>
+        <br><br><br> <!-- Added extra space between starburst and PayPal -->
         <div class="button-container">
             <div id="paypal-container-CW7V7YHHQ3C6U"></div>
         </div>
@@ -156,7 +170,7 @@
         </div>
     </div>
 
-    <script src="https://www.paypal.com/sdk/js?client-id=BAAoZlFu0Dg8P_fvy0JFGVaIBDLBKYvj7oVjsxBds4z09sBZ-gT7kEpz1IvXfUqrKxjB9hkumORKnXWD0Q&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=BAAoZlFu0Dg8P_fvy0JFGVaIBDLBKYvj7oVjsxBds4z09sBZ-gT7kEpz1IvXfUqrKxjB9hkumORKnXWD0Q&components=buttons,funding-eligibility&enable-funding=venmo&currency=USD"></script>
     <script>
         paypal.HostedButtons({
           hostedButtonId: "CW7V7YHHQ3C6U",
