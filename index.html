@@ -8,55 +8,68 @@
         body {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            background-color: #f0f0f0;
             font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
         }
 
-        .container {
+        /* Navigation bar */
+        .navbar {
+            width: 100%;
+            background-color: #0070ba;
+            color: white;
+            padding: 10px 0;
             text-align: center;
-            padding: 20px;
-            max-width: 90%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
 
-        .image-container {
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Main content container */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 80px; /* Space below the navbar */
+            padding: 20px;
+        }
+
+        .content-block {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
             text-align: center;
         }
 
         img {
             width: 100%;
-            max-width: 400px;
-            padding: 20px;
             border-radius: 15px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .starburst-container {
-            text-align: center;
-            margin-top: 10px;
         }
 
         .starburst {
-            display: inline-block;
-            padding: 15px;
-            margin: 10px;
             background-color: yellow;
             color: red;
             font-weight: bold;
-            font-size: 28px;
+            font-size: 24px;
             border-radius: 50%;
             text-shadow: 2px 2px 5px black;
-            transform: rotate(-15deg);
+            padding: 15px;
+            margin: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-            width: 90%;
-            max-width: 600px;
         }
 
-        .button-container {
+        .paypal-container {
             text-align: center;
             margin-top: 20px;
         }
@@ -104,36 +117,34 @@
         .modal button:hover {
             background-color: #005ea6;
         }
-
-        @media (max-width: 600px) {
-            .starburst {
-                font-size: 22px;
-                padding: 10px;
-            }
-            img {
-                max-width: 90%;
-            }
-            button {
-                font-size: 16px;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="image-container">
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <a href="#">I Go Nowhere</a>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <!-- Doctor Image block -->
+        <div class="content-block">
             <img src="doctor.jpeg" alt="Doctor Image">
         </div>
-        <div class="starburst-container">
+
+        <!-- Starburst Text block -->
+        <div class="content-block">
             <div class="starburst">DrJimmyAir.Com where we sell you the own air that you breathe!</div>
             <div class="starburst">Now 20% off!</div>
         </div>
-        <br><br><br> <!-- Added extra space between starburst and PayPal -->
-        <div class="button-container">
-            <div id="paypal-button-container"></div> <!-- Updated ID for PayPal -->
+
+        <!-- PayPal Button block -->
+        <div class="content-block paypal-container">
+            <div id="paypal-container-N6SGUS8W5TERN"></div>
         </div>
     </div>
 
+    <!-- Disclaimer modal -->
     <div id="disclaimerModal" class="modal">
         <div class="modal-content">
             <p>Disclaimer: DrJimmyAir.com is not responsible for loss of air or failure to ensure you have it. By clicking "I Agree" below, you consent to using our services with full knowledge that we will not actually be providing you any additional air or deliver any product or service. This transaction represents a voluntary contribution with no expectation of goods or services. Further, you agree that no legal claim or action will be brought against DrJimmyAir.com or its affiliates under any circumstances as this is purely a whimsical transaction. All payments are non-refundable, and by proceeding, you confirm full understanding of the nature of this agreement. By consenting, you waive any and all claims for damages or losses, financial or otherwise, related to this transaction.</p>
@@ -141,13 +152,17 @@
         </div>
     </div>
 
-    <!-- PayPal SDK -->
-    <script src="https://www.paypal.com/sdk/js?client-id=BAAoZlFu0Dg8P_fvy0JFGVaIBDLBKYvj7oVjsxBds4z09sBZ-gT7kEpz1IvXfUqrKxjB9hkumORKnXWD0Q&components=buttons&enable-funding=venmo&currency=USD"></script>
+    <!-- PayPal SDK Script -->
+    <script src="https://www.paypal.com/sdk/js?client-id=BAAoZlFu0Dg8P_fvy0JFGVaIBDLBKYvj7oVjsxBds4z09sBZ-gT7kEpz1IvXfUqrKxjB9hkumORKnXWD0Q&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
 
     <!-- PayPal Button Script -->
     <script>
-        paypal.Buttons().render('#paypal-button-container'); // Render the PayPal buttons
+      paypal.HostedButtons({
+        hostedButtonId: "N6SGUS8W5TERN",
+      }).render("#paypal-container-N6SGUS8W5TERN");
+    </script>
 
+    <script>
         // Show the modal on page load
         window.onload = function() {
             document.getElementById('disclaimerModal').style.display = 'flex';
