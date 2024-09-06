@@ -23,12 +23,21 @@
             max-width: 90%;
         }
 
+        .image-container {
+            text-align: center;
+        }
+
         img {
             width: 100%;
             max-width: 400px;
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .starburst-container {
+            text-align: center;
+            margin-top: 10px;
         }
 
         .starburst {
@@ -47,8 +56,9 @@
             max-width: 500px;
         }
 
-        .starburst-container {
-            margin-top: 10px;
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
         }
 
         button {
@@ -85,6 +95,17 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.7);
+            border: 5px solid;
+            border-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet) 1;
+            margin: 20px;
+        }
+
+        .modal-content p {
+            text-align: justify;
+            margin: 15px 0;
+            line-height: 1.5;
+            padding: 0 10px;
         }
 
         .modal button {
@@ -116,12 +137,16 @@
 </head>
 <body>
     <div class="container">
-        <img src="doctor.jpeg" alt="Doctor Image">
+        <div class="image-container">
+            <img src="doctor.jpeg" alt="Doctor Image">
+        </div>
         <div class="starburst-container">
             <div class="starburst">DrJimmyAir.Com where we sell you the own air that you breathe!</div>
             <div class="starburst">Now 20% off!</div>
         </div>
-        <div id="paypal-container-CW7V7YHHQ3C6U"></div>
+        <div class="button-container">
+            <div id="paypal-container-CW7V7YHHQ3C6U"></div>
+        </div>
     </div>
 
     <div id="disclaimerModal" class="modal">
